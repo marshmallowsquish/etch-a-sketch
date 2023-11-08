@@ -11,7 +11,7 @@ let gridSize = 16;
 function getNewSize() {
   gridSize = prompt("Enter a number between 4 and 100.", "");
   gridSize = parseInt(gridSize);
-  if (!(gridSize >= 4 && gridSize <=100)) getNewSize();
+  if (!(gridSize >= 1 && gridSize <=100)) getNewSize();
 }
 
 /* DECLARE EVENT HANDLERS */
@@ -27,7 +27,7 @@ const INIT = {
     while (gridContainer.firstChild) {
       gridContainer.removeChild(gridContainer.firstChild);
     }
-    
+
     for (let i = 1; i <= gridSize**2; i++) {
       const square = document.createElement("div");
       const side = (1 / gridSize) * 100;
