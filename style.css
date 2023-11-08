@@ -3,3 +3,27 @@
   padding: 0;
   margin: 0;
 }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#grid-container {
+  max-height: 90vh;
+  max-width: 90vw;
+  aspect-ratio: 1 / 1;
+  border: 5px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.square {
+  border: 1px solid hsl(0, 0%, 75%);
+  flex: 1;
+}
+
+.square:hover {
+  background-color: hsl(0, 0%, 0%);
+}
