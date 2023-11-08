@@ -17,6 +17,14 @@ button {
   margin: 25px;
 }
 
+div {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 #grid-container {
   min-height: 35vh;
   min-width: 35vw;
