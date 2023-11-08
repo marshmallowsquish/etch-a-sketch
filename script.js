@@ -1,10 +1,14 @@
-/* DECLARE VARIABLES - selectors*/
+/* DECLARE VARIABLES - selectors, working values */
 
 //selectors:
 const gridContainer = document.getElementById("grid-container");
 const squares = document.getElementsByClassName("square")
 const newGridButton = document.getElementById("new-grid-button")
 const resetButton = document.getElementById("reset-button");
+const colorButtons = document.getElementsByClassName("color-button");
+
+//working values:
+let currentColor = "black";
 let gridSize = 16;
 let mousedown = 0;
 
@@ -37,6 +41,22 @@ window.addEventListener("mousedown", () => mousedown++)
 window.addEventListener("mouseup", () => mousedown--)
 
 /* DECLARE NAMESPACES */
+const INIT = {
+  styleColorButtons: function() {
+    for (let i = 0; i < colorButtons.length; i++) {
+      const bgColor = colorButtons[i].getAttribute("id");
+      colorButtons[i].style.backgroundColor = bgColor;
+    }
+  },
+  createColorChangeEvent: function() {
+    for (let i = 0; i < colorButtons.length; i++) {
+      colorButtons[i].addEventListener("click", function() {
+        const chosenColor = colorButtons[i].getAttribute("id");
+        currentColor = chosenColor;
+      })
+    }
+  }
+}
 const GRID = {
   createGridSquares: function() {
     while (gridContainer.firstChild) {
@@ -55,18 +75,20 @@ const GRID = {
   createMousedownEvent: function() {
     for (let i = 0; i < squares.length; i++) {
       squares[i].addEventListener("mousedown", function() {
-        squares[i].style.backgroundColor = "black";
+        squares[i].style.backgroundColor = currentColor;
       })
     }
   },
   createMouseoutEvent: function() {
     for (let i = 0; i < squares.length; i++) {
       squares[i].addEventListener("mouseenter", function() {
-        if (mousedown) squares[i].style.backgroundColor = "black";
+        if (mousedown) squares[i].style.backgroundColor = currentColor;
       })
     }
   },
 }
 
 /* SCRIPT */
+INIT.styleColorButtons();
+INIT.createColorChangeEvent();
 createGrid();
