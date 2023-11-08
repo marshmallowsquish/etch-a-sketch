@@ -6,9 +6,6 @@
 
 body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 button {
@@ -25,14 +22,12 @@ div {
   -ms-user-select: none;
 }
 
-#grid-container {
-  min-height: 35vh;
-  min-width: 35vw;
-  max-width: 35vh;
-  aspect-ratio: 1 / 1;
-  border: 5px solid black;
+.column {
+  min-width: calc(100% / 3);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .square {
@@ -42,4 +37,14 @@ div {
 
 .square:hover {
   background-color: hsl(0, 0%, 0%);
+}
+
+#grid-container {
+  min-height: 35vh;
+  min-width: 35vw;
+  max-width: 35vh;
+  aspect-ratio: 1 / 1;
+  border: 5px solid black;
+  display: flex;
+  flex-wrap: wrap;
 }
