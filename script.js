@@ -6,6 +6,7 @@ const squares = document.getElementsByClassName("square")
 const newGridButton = document.getElementById("new-grid-button")
 const resetButton = document.getElementById("reset-button");
 let gridSize = 16;
+let mousedown = 0;
 
 /* DECLARE FUNCTIONS */
 function getNewSize() {
@@ -27,6 +28,9 @@ resetButton.addEventListener("click", function() {
   }
 })
 
+window.addEventListener("mousedown", () => mousedown++)
+window.addEventListener("mouseup", () => mousedown--)
+
 /* DECLARE NAMESPACES */
 const INIT = {
   createGrid: function() {
@@ -46,7 +50,7 @@ const INIT = {
   createMouseoutEvent: function() {
     for (let i = 0; i < squares.length; i++) {
       squares[i].addEventListener("mouseout", function() {
-        squares[i].style.backgroundColor = "black";
+        if (mousedown) squares[i].style.backgroundColor = "black";
       })
     }
   }
