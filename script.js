@@ -19,6 +19,7 @@ function getNewSize() {
 newGridButton.addEventListener("click", function() {
   getNewSize();
   INIT.createGrid();
+  INIT.createMousedownEvent();
   INIT.createMouseoutEvent();
 })
 
@@ -47,15 +48,23 @@ const INIT = {
       gridContainer.appendChild(square);
     }
   },
+  createMousedownEvent: function() {
+    for (let i = 0; i < squares.length; i++) {
+      squares[i].addEventListener("mousedown", function() {
+        squares[i].style.backgroundColor = "black";
+      })
+    }
+  },
   createMouseoutEvent: function() {
     for (let i = 0; i < squares.length; i++) {
-      squares[i].addEventListener("mouseout", function() {
+      squares[i].addEventListener("mouseenter", function() {
         if (mousedown) squares[i].style.backgroundColor = "black";
       })
     }
-  }
+  },
 }
 
 /* SCRIPT */
 INIT.createGrid();
+INIT.createMousedownEvent();
 INIT.createMouseoutEvent();
