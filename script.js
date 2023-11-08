@@ -15,12 +15,16 @@ function getNewSize() {
   if (!(gridSize >= 1 && gridSize <=100)) getNewSize();
 }
 
+function createGrid() {
+  GRID.createGridSquares();
+  GRID.createMousedownEvent();
+  GRID.createMouseoutEvent();
+}
+
 /* DECLARE EVENT HANDLERS */
 newGridButton.addEventListener("click", function() {
   getNewSize();
-  INIT.createGrid();
-  INIT.createMousedownEvent();
-  INIT.createMouseoutEvent();
+  createGrid();
 })
 
 resetButton.addEventListener("click", function() {
@@ -33,8 +37,8 @@ window.addEventListener("mousedown", () => mousedown++)
 window.addEventListener("mouseup", () => mousedown--)
 
 /* DECLARE NAMESPACES */
-const INIT = {
-  createGrid: function() {
+const GRID = {
+  createGridSquares: function() {
     while (gridContainer.firstChild) {
       gridContainer.removeChild(gridContainer.firstChild);
     }
@@ -65,6 +69,4 @@ const INIT = {
 }
 
 /* SCRIPT */
-INIT.createGrid();
-INIT.createMousedownEvent();
-INIT.createMouseoutEvent();
+createGrid();
