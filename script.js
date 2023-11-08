@@ -21,6 +21,12 @@ newGridButton.addEventListener("click", function() {
   INIT.createMouseoutEvent();
 })
 
+resetButton.addEventListener("click", function() {
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = "transparent";
+  }
+})
+
 /* DECLARE NAMESPACES */
 const INIT = {
   createGrid: function() {
