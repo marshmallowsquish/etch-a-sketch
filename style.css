@@ -11,9 +11,16 @@ body {
   justify-content: center;
 }
 
+button {
+  height: 50px;
+  width: 200px;
+  margin: 25px;
+}
+
 #grid-container {
-  max-height: 90vh;
-  max-width: 90vw;
+  min-height: 35vh;
+  min-width: 35vw;
+  max-width: 35vh;
   aspect-ratio: 1 / 1;
   border: 5px solid black;
   display: flex;
